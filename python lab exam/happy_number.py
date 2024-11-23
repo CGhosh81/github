@@ -1,13 +1,10 @@
-def isHappy(n):
-        mem = set()
-        while n != 1 and n not in mem:
-            mem.add(n)
-            x = 0
-            while n > 0:
-                temp = n % 10
-                x += temp * temp
-                n = n // 10
-            n = x
-        return n == 1
+def ishappy(n):
+    mem = set()
+    while n != 1:
+        if n in mem:
+            return False
+        mem.add(n)
+        n = sum(int(i) ** 2 for i in str(n))
+    return True
 
-print(isHappy(19))
+print(ishappy(19))  # Output: True

@@ -18,25 +18,30 @@ Input: s = "([])"
 Output: true
 
 """
+def ValidParentheses(s):
+    stack = []
+    for b in s:
+        if b in "({[":
+            stack.append(b)
+        elif b in ")}]":
+            if not stack:  # Check if stack is empty
+                return False
+            if stack[-1] == "(" and b == ")":
+                stack.pop()
+            elif stack[-1] == "{" and b == "}":
+                stack.pop()
+            elif stack[-1] == "[" and b == "]":
+                stack.pop()
+            else:
+                return False  # Mismatched bracket
+    
+    # If stack is empty, parentheses are valid
+    return not stack
 
-
-
-
-s = "()[]{}" # Input string
-stack = []
-pairs = {')': '(', '}': '{', ']': '['}
-valid = True
-
-for ch in s:
-    if ch in pairs.values():
-        stack.append(ch)
-    elif ch in pairs:
-        if not stack or stack[-1] != pairs[ch]:
-            valid = False
-            break
-        stack.pop()
-
-if stack:
-    valid = False
-
-print(valid)
+# Test cases
+print(ValidParentheses("()"))        # True
+print(ValidParentheses("()[]{}"))    # True
+print(ValidParentheses("(]"))        # False
+print(ValidParentheses("([)]"))      # False
+print(ValidParentheses("{[]}"))      # True
+print(ValidParentheses("})]}"))      # True

@@ -5,7 +5,7 @@ def merge(arr, l, r):
     
     # Create temporary arrays
     L = arr[l:mid + 1]
-    R = arr[mid + 1:r + 1]
+    R = arr[mid + 1:r+2]
     
     i = 0    # Initial index of left subarray
     j = 0    # Initial index of right subarray
@@ -44,8 +44,8 @@ def mergeSort(arr, l, r):
 arr = [12, 11, 13, 5, 6, 7]
 n = len(arr)
 print("Given array is")
-print(" ".join(map(str, arr)))
+print(arr)
 
-mergeSort(arr, 0, n - 1)
+mergeSort(arr, 0, n )
 print("\nSorted array is")
-print(" ".join(map(str, arr)))
+print(arr)

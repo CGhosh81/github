@@ -2,10 +2,10 @@ import sys
 
 def MatrixChainOrder(p, n):
     m = [[0 for x in range(n)] for x in range(n)]
-    print(m)
+ 
     for i in range(1, n):
         m[i][i] = 0
-    print(m)
+   
     for L in range(2, n):
         for i in range(1, n - L + 1):
             j = i + L - 1
@@ -13,8 +13,7 @@ def MatrixChainOrder(p, n):
             
             for k in range(i, j):
                 q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j]
-                print(q)
-                print(m[i][j])
+                
                 if q < m[i][j]:
                     m[i][j] = q
 

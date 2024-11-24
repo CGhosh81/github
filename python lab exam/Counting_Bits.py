@@ -5,5 +5,5 @@ def countBits(n):
     return [bin(i).count('1') for i in range(n + 1)]
 
 # Example usage:
-n = 5
+n = 6
 print(countBits(n))
